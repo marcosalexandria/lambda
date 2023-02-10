@@ -15,8 +15,10 @@ public class Main {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-//forEach de uma coleção recebe um consumer
-		list.forEach(new PriceUpdate());
+		double aumento = 1.1;
+//forEach de uma coleção recebe um consumer, ele é void, apenas execulta um comando
+//cada produto (p) vai receber (->) o seu preço mais 10% do seu preço
+		list.forEach(p -> p.setPreco(p.getPreco() * aumento));
 		
 		 list.forEach(System.out::println);
 
