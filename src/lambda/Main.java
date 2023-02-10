@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lambda.entity.Product;
+import lambda.util.PriceUpdate;
 
 public class Main {
 
@@ -14,16 +15,10 @@ public class Main {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		Double min = 100.0;
+//forEach de uma coleção recebe um consumer
+		list.forEach(new PriceUpdate());
 		
-
-		//função anonima que recebe como argumento um (p -> produto que retorna) que 
-		//(-> p.getPreco() >= min; retorna o booleano de preço maio ou igual a 100)
-		list.removeIf( p -> p.getPreco() >= min );
-		for (Product p : list) {
-			System.out.println(p);
-		}
-		
+		 list.forEach(System.out::println);
 
 	}
 }
